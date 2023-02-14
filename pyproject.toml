@@ -17,7 +17,11 @@ Changelog = "https://github.com/iamlucassantos/piemodoro/releases"
 
 [tool.poetry.dependencies]
 python = "^3.7"
-click = ">=8.0.1"
+pydantic = "^1.10.4"
+typer = {extras = ["all"], version = "^0.7.0"}
+rich = "<=13"
+pynput = "^1.7.6"
+pygame = "^2.1.2"
 
 [tool.poetry.dev-dependencies]
 Pygments = ">=2.10.0"
@@ -46,7 +50,7 @@ xdoctest = {extras = ["colors"], version = ">=0.15.10"}
 myst-parser = {version = ">=0.16.1"}
 
 [tool.poetry.scripts]
-piemodoro = "piemodoro.__main__:main"
+pie = "piemodoro.__main__:app"
 
 [tool.coverage.paths]
 source = ["src", "*/site-packages"]

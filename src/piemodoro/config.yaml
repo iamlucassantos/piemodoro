@@ -1,0 +1,5 @@
+---
+pomodoro: 25  # minutes
+short_break: 5  # minutes
+long_break: 15  # minutes
+long_break_interval: 4  # pomodoros
