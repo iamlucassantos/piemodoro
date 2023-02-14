@@ -1,15 +1,20 @@
 """Command-line interface."""
-import typer
+import datetime
+import os
 import shutil
-import yaml
 from pathlib import Path
+
+import typer
+import yaml
 from rich.console import Console
-from rich.prompt import Confirm
 from rich.panel import Panel
 from rich.progress import Progress, RenderableColumn
-from rich.markdown import Markdown
-import datetime
+from rich.prompt import Confirm
+
+# Not print pygame message
+os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame.mixer as mixer
+
 from .config import Configuration
 from .pomodoro import Pomo
 from typing import Optional
@@ -31,7 +36,7 @@ console = Console()
 @app.command()
 def start(goal: Optional[int] = typer.Argument(None, help="Number of pomodoro sets to run."),
           ask: Optional[bool] = typer.Option(False, help="Ask to continue after timer is finished."),
-          mute: Optional[bool] = typer.Option(False, help="Mute the timer sound."),):
+          mute: Optional[bool] = typer.Option(False, help="Mute the timer sound."), ):
     """Start a new pomodoro session."""
     config_file = USER_CONFIG if USER_CONFIG.exists() else DEFAULT_CONFIG_FILE
     with open(config_file, "r") as f:
