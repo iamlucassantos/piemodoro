@@ -25,6 +25,7 @@ class Pomo:
         self.pomodoro_count = 0
         self.long_break_count = 0
         self.short_break_count = 0
+        self.paused = 0
         self.time_left = pomodoro * 60
         self.state = 'pomodoro'
         self.timer = None
@@ -33,7 +34,7 @@ class Pomo:
         "pomodoro": "Pomodoro",
         "short_break": "Short break",
         "long_break": "Long break",
-        "stopped": "Stopped"
+        "paused": "Paused"
     }
 
     def switch(self):
