@@ -33,7 +33,7 @@ class Timer:
             BarColumn(),
             TextColumn("[progress.percentage]{task.percentage:>3.0f}%"),
         )
-        self.task = self.progress.add_task("timer", total=self.pomo.get_state_length(self.pomo.state) * 3)
+        self.task = self.progress.add_task("timer", total=self.pomo.get_state_length(self.pomo.state) * 60)
 
     def __rich__(self) -> Panel:
         grid = Table.grid(expand=True, padding=1)
